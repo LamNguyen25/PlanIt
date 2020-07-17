@@ -6,6 +6,6 @@ export const FIREBASE_CONFIG = {
     projectId: "********-*****",
     storageBucket: "**********-*****.appspot.com",
     messagingSenderId: "************",
-    appId: "1:************:web:e41c3cf333fe11d5fa5c70",
-    measurementId: "G-XRHYMVN9KP"
+    appId: "**************************",
+    measurementId: "*************"
   };
