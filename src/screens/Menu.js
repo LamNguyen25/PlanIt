@@ -5,6 +5,7 @@ import LIcon from 'react-native-vector-icons/SimpleLineIcons';
 import UserIcon from 'react-native-vector-icons/EvilIcons';
 import { theme } from "../core/theme";
 import { logoutUser } from '../api/auth-api';
+import { createStackNavigator, createAppContainer } from 'react-navigation';
 let SideMenuWidth = 300;
 
 const Menu = ({ navigation }) => {
@@ -14,7 +15,7 @@ const Menu = ({ navigation }) => {
                     <View style={ styles.header }>
                         <View style={ styles.userInfosHolder }>
                             {/* <Image styles={ styles.avatar } source={require('../assets/user1.jpg')} /> */}
-                            <UserIcon name='user' color={theme.colors.txtWhite} size={24} />
+                            <UserIcon name='user' color={theme.colors.txtWhite} size={50} />
                             <View style={ styles.userInfos }>
                                 <Text style={ styles.userName }> Username</Text>
                                 <Text style={ styles.userNameText}>View and edit profile</Text>
@@ -22,13 +23,16 @@ const Menu = ({ navigation }) => {
                         </View>
                     </View>
                     <TouchableOpacity style={[ styles.menu, {backgroundColor: 'rgba(255,255,255,0.3)', borderRadius: 5} ]}
-                        onPress={() => navigation.navigate('Dashboard')}
                     >
                         <Icon name='home' color={theme.colors.txtWhite} size={24} />
                         <Text style={styles.menuText}>Home</Text>
                     </TouchableOpacity>
 
-                    <TouchableOpacity style={ styles.menu} >
+                    <TouchableOpacity 
+                        style={ styles.menu} 
+                        // onPress={() => navigation.navigate('MenuStack', { screen: 'UserProfile' })}
+                        // onPress={() => window.location.href = 'UserProfile.js'}
+                    >
                         <Icon name='user-o' color={theme.colors.txtWhite} size={24} />
                         <Text style={styles.menuText}>Profile</Text>
                     </TouchableOpacity>
@@ -87,7 +91,7 @@ const styles = StyleSheet.create({
         color: theme.colors.txtWhite
     },
     header: {
-        marginTop: 20,
+        marginTop: 50,
         marginBottom: 20
     },
     userInfosHolder: {

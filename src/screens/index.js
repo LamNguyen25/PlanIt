@@ -5,3 +5,5 @@ export { default as ForgotPasswordScreen } from './ForgotPasswordScreen';
 export { default as Menu } from './Menu';
 export { default as Dashboard } from './Dashboard';
 export { default as AuthLoadingScreen } from './AuthLoadingScreen';
+export { default as TaskDetails } from './TaskDetails';
+

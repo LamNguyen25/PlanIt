@@ -1,5 +1,7 @@
 import React, { memo, useState } from "react";
-import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity, Dimensions } from "react-native";
+import CardView from 'react-native-cardview'
+
 import Background from "../components/Background";
 import Logo from "../components/Logo";
 import Header from "../components/Header";
@@ -14,6 +16,11 @@ import {
 } from "../core/utils";
 import { signInUser } from '../api/auth-api';
 import Toast from "../components/Toast";
+
+
+const screen = Dimensions.get('window');
+const mobileWidth = screen.width;
+const mobileHeight = screen.height;
 
 const RegisterScreen = ({ navigation }) => {
     const [name, setName] = useState({ value: "", error: "" });
@@ -53,67 +60,89 @@ const RegisterScreen = ({ navigation }) => {
 
     return (
         <Background>
-            <BackButton goBack={() => navigation.navigate("HomeScreen")} />
-
-            <Logo />
-
-            <Header>Create Account</Header>
-
-            <TextInput 
-                label="Name"
-                returnKeyType="next"
-                value={name.value}
-                onChangeText={text => setName({ value: text, error: "" })}
-                error={!!name.error}
-                errorText={name.error}
-            />
-
-            <TextInput
-                label="Email"
-                returnKeyType="next"
-                value={email.value}
-                onChangeText={text => setEmail({ value: text, error: "" })}
-                error={!!email.error}
-                errorText={email.error}
-                autoCapitalize="none"
-                autoCompleteType="email"
-                textContentType="emailAddress"
-                keyboardType="email-address"
-            />
-
-            <TextInput
-                label="Password"
-                returnKeyType="done"
-                value={password.value}
-                onChangeText={text => setPassword({ value: text, error: "" })}
-                error={!!password.error}
-                errorText={password.error}
-                secureTextEntry
-                autoCapitalize="none"
-            />
-
-            <Button
-                loading={loading}
-                mode="contained"
-                onPress={_onSignUpPressed}
-                style={styles.button}
+            {/* <BackButton goBack={() => navigation.navigate("HomeScreen")} /> */}
+            <CardView
+                cardElevation={4}
+                maxCardElevation={4}
+                cornerRadius={10}
+                style={styles.cardViewStyle}
             >
-                Sign Up
-            </Button>
+                <View style={styles.cardElement}>
+                    <Logo />
 
-            <View style={styles.row}>
-                <Text style={styles.label}>Already have an account? </Text>
-                <TouchableOpacity onPress={() => navigation.navigate("LoginScreen")}>
-                    <Text style={styles.link}>Login</Text>
-                </TouchableOpacity>
-            </View>
+                    <Header>Create Account</Header>
 
-            <Toast message={error} onDismiss={() => setError("")} />
+                    <TextInput 
+                        label="Name"
+                        returnKeyType="next"
+                        value={name.value}
+                        onChangeText={text => setName({ value: text, error: "" })}
+                        error={!!name.error}
+                        errorText={name.error}
+                    />
+
+                    <TextInput
+                        label="Email"
+                        returnKeyType="next"
+                        value={email.value}
+                        onChangeText={text => setEmail({ value: text, error: "" })}
+                        error={!!email.error}
+                        errorText={email.error}
+                        autoCapitalize="none"
+                        autoCompleteType="email"
+                        textContentType="emailAddress"
+                        keyboardType="email-address"
+                    />
+
+                    <TextInput
+                        label="Password"
+                        returnKeyType="done"
+                        value={password.value}
+                        onChangeText={text => setPassword({ value: text, error: "" })}
+                        error={!!password.error}
+                        errorText={password.error}
+                        secureTextEntry
+                        autoCapitalize="none"
+                    />
+
+                    <Button
+                        loading={loading}
+                        mode="contained"
+                        onPress={_onSignUpPressed}
+                        style={styles.button}
+                    >
+                        Sign Up
+                    </Button>
+
+                    <View style={styles.row}>
+                        <Text style={styles.label}>Already have an account? </Text>
+                        <TouchableOpacity onPress={() => navigation.navigate("LoginScreen")}>
+                            <Text style={styles.link}>Login</Text>
+                        </TouchableOpacity>
+                    </View>
+
+                    <Toast message={error} onDismiss={() => setError("")} />
+
+                </View>
+            </CardView>
         </Background>
     );
 };
 
 const styles = StyleSheet.create({
+    cardViewStyle:{
+        // width: 300, 
+        // height: 600,
+        width: mobileWidth - (mobileWidth/5), 
+        height: mobileHeight,
+        backgroundColor: theme.colors.bgTitle,
+        opacity: .8
+    },
+    cardElement: {
+        padding:10, 
+        opacity:1, 
+        justifyContent: 'center'
+    },
     label: {
         color: theme.colors.secondary
     },

@@ -16,7 +16,9 @@ export const theme = {
     txtWhite: '#ffffff',
     txtBlack: '#000000',
 
-    bgMain: '#A8DADC',
+    //bgMain: '#A8DADC',
+    bgTitle: '#348183',
+    bgMain: '#fffffc',
     bgMainDark: '#214559', // For screens > auth
     bgMainRed: '#FE6165',
     bgWhite: '#ffffff',
