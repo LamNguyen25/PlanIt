@@ -5,7 +5,7 @@ import LIcon from 'react-native-vector-icons/SimpleLineIcons';
 import UserIcon from 'react-native-vector-icons/EvilIcons';
 import { theme } from "../core/theme";
 import { logoutUser } from '../api/auth-api';
-import { createStackNavigator, createAppContainer } from 'react-navigation';
+
 let SideMenuWidth = 300;
 
 const Menu = ({ navigation }) => {
@@ -30,8 +30,7 @@ const Menu = ({ navigation }) => {
 
                     <TouchableOpacity 
                         style={ styles.menu} 
-                        // onPress={() => navigation.navigate('MenuStack', { screen: 'UserProfile' })}
-                        // onPress={() => window.location.href = 'UserProfile.js'}
+                        onPress={() => navigation.navigate("Profile")}
                     >
                         <Icon name='user-o' color={theme.colors.txtWhite} size={24} />
                         <Text style={styles.menuText}>Profile</Text>

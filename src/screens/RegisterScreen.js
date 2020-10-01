@@ -52,12 +52,11 @@ const RegisterScreen = ({ navigation }) => {
         if(response.error) {
             setError(response.error);
         }
-
+        console.log(error);
         setLoading(false);
     };
 
     return (
-        // <View style={styles.container}>
             <Background style={styles.container}>
             {/* <BackButton goBack={() => navigation.navigate("HomeScreen")} /> */}
             <View style={styles.topContainer}/>
@@ -165,7 +164,6 @@ const styles = StyleSheet.create({
         paddingVertical: 15,
         backgroundColor: theme.colors.bgTitle,
         opacity: .8
-    
       },
       bottomContainer: {
         flex: 1,

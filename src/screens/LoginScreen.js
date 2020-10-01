@@ -45,8 +45,9 @@ const LoginScreen = ({ navigation }) => {
         if(response.error) {
             setError(response.error);
         }
-
+        
         setLoading(false);
+        console.log(response.error);
     };
 
     return (
@@ -117,8 +118,6 @@ export default memo(LoginScreen);
 
 const styles = StyleSheet.create({
     cardViewStyle:{
-        // width: 300, 
-        // height: 550,
         width: mobileWidth - (mobileWidth/5), 
         height: mobileHeight - (mobileHeight/5),
         backgroundColor: theme.colors.bgTitle,
