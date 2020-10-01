@@ -64,7 +64,7 @@ function Dashboard({ navigation }) {
 //  render() {
     return (
       <View style={styles.container}>
-        <MenuDrawer
+        {/* <MenuDrawer
           open={isOpen}
           drawerContent={
           <TouchableOpacity onPress={() => setMenuOpen(false)} style={styles.sideMenu}>
@@ -74,13 +74,13 @@ function Dashboard({ navigation }) {
             animationTime={250}
             overlay={true}
             opacity={0.4}
-        >
+        > */}
         <View style={styles.mainScreen}>
-          <View style={ styles.navBar }>
+          {/* <View style={ styles.navBar }>
             <TouchableOpacity onPress={() => setMenuOpen(true)} style={styles.button}>
               <Icon name='menu' size={30} style={{ color: '#2a9d8f' }} />
             </TouchableOpacity>
-          </View>
+          </View> */}
           
           <View>
             {/* <Text style={ styles.headerHolder }>Welcome to TaskList</Text> */}
@@ -117,8 +117,7 @@ function Dashboard({ navigation }) {
           </View>
           
         </View>
-        
-        </MenuDrawer>
+        {/* </MenuDrawer> */}
       </View>
     )
   //}
@@ -170,13 +169,13 @@ const styles = StyleSheet.create({
     marginTop: -5
     
   },
-  mainScreen: {
-    shadowColor: '#000000',
-    shadowOpacity: 0.4,
-    shadowOffset: { height: -5, width:-5},
-    shadowRadius: 10,
-    //backgroundColor: theme.colors.bgMain,
-  },
+  // mainScreen: {
+  //   shadowColor: '#000000',
+  //   shadowOpacity: 0.4,
+  //   shadowOffset: { height: -5, width:-5},
+  //   shadowRadius: 10,
+  //   //backgroundColor: theme.colors.bgMain,
+  // },
   siteName: {
     marginTop: 30,
     width: 250,
