@@ -2,10 +2,8 @@ import React, { memo } from "react";
 import { StyleSheet, Text, TouchableOpacity, View, Dimensions } from "react-native";
 import Background from "../components/Background";
 import Logo from "../components/Logo";
-import Button from "../components/Button";
 import Paragraph from "../components/Paragraph";
-import CardView from 'react-native-cardview'
-import {theme} from '../core/theme';
+import {colors} from '../core/theme';
 
 const screen = Dimensions.get('window');
 const mobileWidth = screen.width;
@@ -30,7 +28,7 @@ const HomeScreen = ({ navigation }) => (
             style={styles.buttonSignUp}
             onPress={() => navigation.navigate("RegisterScreen")}
           >
-            <Text style={{color:theme.colors.primary, fontWeight: 'bold' }}> Sign Up</Text>
+            <Text style={{color:colors.primary, fontWeight: 'bold' }}> Sign Up</Text>
           </TouchableOpacity>
         
         </View>
@@ -69,7 +67,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
     paddingHorizontal: 20,
     paddingVertical: 10,
-    backgroundColor: theme.colors.bgTitle,
+    backgroundColor: colors.bgTitle,
     borderRadius: 5,
     opacity: .8
   },
@@ -78,7 +76,7 @@ const styles = StyleSheet.create({
     width: '100%'
   },
   pText:{
-    color: theme.colors.txtBlack
+    color: colors.txtBlack
   },
   buttonLogin: {
     width: "100%",
@@ -86,7 +84,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     height: 50,
-    backgroundColor: theme.colors.primary,
+    backgroundColor: colors.primary,
     borderRadius: 5,
 },
 buttonSignUp: {
@@ -95,7 +93,7 @@ buttonSignUp: {
   justifyContent: "center",
   alignItems: "center",
   height: 50,
-  backgroundColor: theme.colors.bdWhite,
+  backgroundColor: colors.bdWhite,
   borderRadius: 5
 },
 });

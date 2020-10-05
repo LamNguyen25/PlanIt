@@ -1,7 +1,7 @@
 import React from 'react';
 // import { StyleSheet, Text, View, ScrollView, TextInput, Keyboard, KeyboardAvoidingView } from 'react-native';
 import {createStackNavigator} from '@react-navigation/stack';
-import { theme } from '../core/theme'
+import { colors } from '../core/theme'
 
 import {
   HomeScreen,
@@ -17,7 +17,7 @@ const AuthStack = () => {
   return (
     // <KeyboardAvoidingView style={{flex: 1}} >
     //    <ScrollView horizontal={true} contentContainerStyle={{minHeight: "100%"}}>
-    <Stack.Navigator screenOptions={{ headerStyle:{backgroundColor:theme.colors.bgTitle}}} initialRouteName="HomeScreen">
+    <Stack.Navigator screenOptions={{ headerStyle:{backgroundColor: colors.bgTitle}}} initialRouteName="HomeScreen">
       <Stack.Screen 
         name="HomeScreen" 
         component={HomeScreen} 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
-import { theme } from "../core/theme";
+import { colors } from "../core/theme";
 
 const TaskItem = props => {
     return (
@@ -22,8 +22,8 @@ const TaskItem = props => {
 const styles = StyleSheet.create({
     listItem: {
         padding: 20,
-        backgroundColor: theme.colors.bdWhite,
-        borderColor: theme.colors.txtBlack,
+        backgroundColor: colors.bdWhite,
+        borderColor: colors.txtBlack,
         borderWidth: 1,
         margin: 10,
         borderRadius: 10,

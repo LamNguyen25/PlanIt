@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, View, Text, Dimensions} from 'react-native';
-import { theme } from '../core/theme';
+import { colors } from '../core/theme';
 import BackButton  from '../components/BackButton';
 
 

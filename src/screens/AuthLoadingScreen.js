@@ -3,7 +3,7 @@ import { ActivityIndicator } from "react-native";
 import firebase from "firebase/app";
 import "firebase/auth";
 import Background from "../components/Background";
-import { theme } from "../core/theme";
+import { colors } from "../core/theme";
 import { FIREBASE_CONFIG } from "../core/config";
 
 // Initialize Firebase
@@ -23,7 +23,7 @@ const AuthLoadingScreen = ({ navigation }) => {
 
     return (
         <Background>
-            <ActivityIndicator size="large" color={theme.colors.primary} />
+            <ActivityIndicator size="large" color={colors.primary} />
         </Background>
     );
 };

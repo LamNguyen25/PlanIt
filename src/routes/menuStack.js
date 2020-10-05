@@ -5,7 +5,7 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 import { DrawerActions } from "@react-navigation/native";
 import MenuIcon from 'react-native-vector-icons/MaterialIcons';
  import Icon from 'react-native-vector-icons/FontAwesome';
-import {theme } from '../core/theme';
+import {colors } from '../core/theme';
 import {
     LoginScreen,
     TaskDetails,
@@ -16,7 +16,7 @@ import UserProfile from '../screens/UserProfile';
 const Stack = createStackNavigator();
 const MenuStack = () => {
     return (
-        <Stack.Navigator screenOptions={{ headerStyle:{backgroundColor:'#348183'}, headerLeft: null}}>
+        <Stack.Navigator screenOptions={{ headerStyle:{backgroundColor:colors.bgTitle}, headerLeft: null}}>
             <Stack.Screen
                 name="Home"
                 component={DashBoardMenu}

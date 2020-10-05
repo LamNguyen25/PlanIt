@@ -3,7 +3,7 @@ import { StyleSheet, TouchableOpacity, View, Image, Text } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import LIcon from 'react-native-vector-icons/SimpleLineIcons';
 import UserIcon from 'react-native-vector-icons/EvilIcons';
-import { theme } from "../core/theme";
+import { colors } from "../core/theme";
 import { logoutUser } from '../api/auth-api';
 
 let SideMenuWidth = 300;
@@ -15,7 +15,7 @@ const Menu = ({ navigation }) => {
                     <View style={ styles.header }>
                         <View style={ styles.userInfosHolder }>
                             {/* <Image styles={ styles.avatar } source={require('../assets/user1.jpg')} /> */}
-                            <UserIcon name='user' color={theme.colors.txtWhite} size={50} />
+                            <UserIcon name='user' color={colors.txtWhite} size={50} />
                             <View style={ styles.userInfos }>
                                 <Text style={ styles.userName }> Username</Text>
                                 <Text style={ styles.userNameText}>View and edit profile</Text>
@@ -24,7 +24,7 @@ const Menu = ({ navigation }) => {
                     </View>
                     <TouchableOpacity style={[ styles.menu, {backgroundColor: 'rgba(255,255,255,0.3)', borderRadius: 5} ]}
                     >
-                        <Icon name='home' color={theme.colors.txtWhite} size={24} />
+                        <Icon name='home' color={colors.txtWhite} size={24} />
                         <Text style={styles.menuText}>Home</Text>
                     </TouchableOpacity>
 
@@ -32,27 +32,27 @@ const Menu = ({ navigation }) => {
                         style={ styles.menu} 
                         onPress={() => navigation.navigate("Profile")}
                     >
-                        <Icon name='user-o' color={theme.colors.txtWhite} size={24} />
+                        <Icon name='user-o' color={colors.txtWhite} size={24} />
                         <Text style={styles.menuText}>Profile</Text>
                     </TouchableOpacity>
 
                     <TouchableOpacity style={ styles.menu }>
-                        <Icon name='cog' color={theme.colors.txtWhite} size={24} />
+                        <Icon name='cog' color={colors.txtWhite} size={24} />
                         <Text style={styles.menuText}>Settings</Text>
                     </TouchableOpacity>
 
                     <TouchableOpacity style={ styles.menu }>
-                        <Icon name='comment-o' color={theme.colors.txtWhite} size={24} />
+                        <Icon name='comment-o' color={colors.txtWhite} size={24} />
                         <Text style={styles.menuText}>Home</Text>
                     </TouchableOpacity>
 
                     <TouchableOpacity style={ styles.menu }>
-                        <Icon name='bell-o' color={theme.colors.txtWhite} size={24} />
+                        <Icon name='bell-o' color={colors.txtWhite} size={24} />
                         <Text style={styles.menuText}>Notification</Text>
                     </TouchableOpacity>
 
                     <TouchableOpacity style={ styles.menu } mode="outlined" onPress={() => logoutUser()}>
-                        <LIcon name='logout' color={theme.colors.txtWhite} size={24} />
+                        <LIcon name='logout' color={colors.txtWhite} size={24} />
                         <Text style={styles.menuText}>Log Out</Text>
                     </TouchableOpacity>
                 </View>
@@ -87,7 +87,7 @@ const styles = StyleSheet.create({
     menuText: {
         marginLeft: 20,
         fontSize: 16,
-        color: theme.colors.txtWhite
+        color: colors.txtWhite
     },
     header: {
         marginTop: 50,
@@ -111,7 +111,7 @@ const styles = StyleSheet.create({
     },
     userNameText: {
         fontSize: 16,
-        color: theme.colors.txtWhite
+        color: colors.txtWhite
     }
 })
 

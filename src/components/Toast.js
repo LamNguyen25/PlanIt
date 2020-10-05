@@ -2,7 +2,7 @@ import React, { memo } from 'react';
 import { Snackbar } from 'react-native-paper';
 import { StyleSheet, View, Text } from 'react-native';
 import { getStatusBarHeight } from "react-native-status-bar-height";
-import { theme } from "../core/theme";
+import { colors } from "../core/theme";
 
 const styles = StyleSheet.create({
     container: {
@@ -23,7 +23,7 @@ const Toast = ({ type = "error", message, onDismiss }) => (
             onDismiss={onDismiss}
             style={{
                 backgroundColor:
-                    type === "error" ? theme.colors.error : theme.colors.success
+                    type === "error" ? colors.error : colors.success
             }}
         >
             <Text style={styles.content}>{message}</Text>

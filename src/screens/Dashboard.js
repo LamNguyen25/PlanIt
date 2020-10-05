@@ -1,5 +1,5 @@
 
-import React, { useState } from "react";
+import React, { useState, Children } from "react";
 import { 
   View, 
   Text, 
@@ -8,14 +8,14 @@ import {
   Dimensions, 
   FlatList } from 'react-native';
 
-import {theme} from '../core/theme';
+import {colors} from '../core/theme';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import Menu from './Menu';
 import TaskItem from '../components/TaskItem';
 import TaskInput from '../components/TaskInput';
 const Screen = Dimensions.get('window')
 const center = Screen.width / 2 ;
-// import { addNewTask } from '../api/user-api';
+import { addNewTask } from '../api/user-api';
 
 
 function Dashboard({ navigation }) {
@@ -44,16 +44,25 @@ function Dashboard({ navigation }) {
   //   });
   // }
 
-  const addTaskHandler = (taskTitle) => {
+  const addTaskHandler = (taskTitle, noteContent) => {
     if(taskTitle.length === 0) {
       return;
     }
-
+    console.log(taskName),
+    console.log(noteContent);
+    setTaskName(taskTitle);
+    setNote(noteContent);
     setTaskList(currentTasks => [
       ...currentTasks,
       { id: Math.random().toString(), value: taskTitle }
     ]);
+    addNewTask(taskName, note)
+    .then(() => {
 
+    })
+    .catch((err) => {
+      console.log('Error: ', err);
+    })
 
     setIsAddMode(false);
   }
@@ -96,7 +105,6 @@ function Dashboard({ navigation }) {
             <TaskInput
               visible={isAddMode}
               onAddTask={addTaskHandler}
-              // onAddNote={addNodeHandler}
               onCancel={cancelTaskAdditionalHandler}
             />
           </View>
@@ -132,7 +140,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'stretch',
-    backgroundColor: theme.colors.bgMain
+    backgroundColor: colors.bgMain
   },
   navBar: {
     height: 50,
@@ -156,7 +164,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: '700',
     marginLeft: center - (center/3),
-    color: theme.colors.bdNightBlue
+    color: colors.bdNightBlue
   },
   addBtn: {
     position: 'absolute',
@@ -168,23 +176,16 @@ const styles = StyleSheet.create({
   },
   sideMenu: {
     flex: 1,
-    // backgroundColor: theme.colors.bdNightBlue,
+    // backgroundColor: colors.bdNightBlue,
     backgroundColor: '#2D5362',
     padding: 10,
     marginTop: -5
     
   },
-  // mainScreen: {
-  //   shadowColor: '#000000',
-  //   shadowOpacity: 0.4,
-  //   shadowOffset: { height: -5, width:-5},
-  //   shadowRadius: 10,
-  //   //backgroundColor: theme.colors.bgMain,
-  // },
   siteName: {
     marginTop: 30,
     width: 250,
-    color: theme.colors.h1White
+    color: colors.h1White
   },
   buttonContainer: {
     top: 150

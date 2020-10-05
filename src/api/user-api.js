@@ -1,20 +1,26 @@
-import firebase from "firebase/app";
+// import firebase, { firestore } from "firebase/app";
 import firestore from '@react-native-firebase/firestore';
+import config from '../core/config';
 
-const addNewTask = async ({ taskName, note }) => {
-    var dateCreated = new Date();
+// var app = firebase.initializeApp(config);
+// db = firebase.firestore(app);
+
+export const addNewTask = async ({ taskName, note }) => {
     var user = firebase.auth().currentUser;
-    firestore()
-    .collection('taskList')
+    firestore
+    .collection("taskList")
     .add({
         taskName: taskName,
         note: note,
         // duaDate: dueDate,
-        dateAdded: dateCreated.toDateString,
+        created_at: Date.now(),
         // location: location,
         userID : user.uid
     })
     .then(() => {
         console.log('New Task added!');
+    })
+    .catch(function(error) {
+        console.error("Error writing document: ", error);
     });
 }

@@ -1,14 +1,11 @@
 import React, { memo, useState } from "react";
 import { View, Text, StyleSheet, TouchableOpacity, Dimensions } from "react-native";
-import CardView from 'react-native-cardview'
 
 import Background from "../components/Background";
 import Logo from "../components/Logo";
 import Header from "../components/Header";
-import Button from "../components/Button";
 import TextInput from "../components/TextInput";
-import BackButton from "../components/BackButton";
-import { theme } from "../core/theme";
+import { colors } from "../core/theme";
 import {
   emailValidator,
   passwordValidator,
@@ -163,7 +160,7 @@ const styles = StyleSheet.create({
         justifyContent: 'space-around',
         paddingHorizontal: 20,
         paddingVertical: 10,
-        backgroundColor: theme.colors.bgTitle,
+        backgroundColor: colors.bgTitle,
         borderRadius: 5,
         opacity: .9
       },
@@ -172,7 +169,7 @@ const styles = StyleSheet.create({
         width: '100%'
       },
     label: {
-        color: theme.colors.secondary,
+        color: colors.secondary,
     },
     button: {
         marginVertical: 10, 
@@ -184,7 +181,7 @@ const styles = StyleSheet.create({
     },
     link: {
         fontWeight: "bold",
-        color: theme.colors.primary
+        color: colors.primary
      },
      button: {
         width: "100%",
@@ -192,7 +189,7 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
         height: 50,
-        backgroundColor: theme.colors.primary,
+        backgroundColor: colors.primary,
         borderRadius: 5,
     },
 });

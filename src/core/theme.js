@@ -1,9 +1,6 @@
-import { DefaultTheme } from "react-native-paper";
+import { DefaultTheme } from "@react-navigation/native";
 
-export const theme = {
-  ...DefaultTheme,
-  colors: {
-    ...DefaultTheme.colors,
+export const colors = {
     primary: "#2a9d8f",
     secondary: "#414757",
     error: "#f13a59",
@@ -26,12 +23,24 @@ export const theme = {
     bgChat: '#f1f1f1',
     bgSuccess: '#25ce66',
     
-
     bdMain: '#214559',
     bdMainRed: '#FE6165',
     bdWhite: '#ffffff',
     bdLine: '#dddddd',
     bdInput: '#cbcbcb',
     bdNightBlue: '#457b9d',
-  }
+    warning: "#e91e63",
+};
+
+export const appTheme = {
+  ...DefaultTheme,
+  colors: {
+    ...DefaultTheme.colors,
+    primary: colors.primary, //menu highlight: when a menu item is clicked
+    background: colors.bgMain, //page background
+    card: colors.bgTitle, //header
+    text: colors.white, //menu text color
+    border: colors.txtBlack, //
+    notification: colors.warning,
+  },
 };

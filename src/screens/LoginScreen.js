@@ -1,21 +1,16 @@
 import React, { memo, useState } from "react";
 import { TouchableOpacity, StyleSheet, Text, View, Dimensions } from "react-native";
-import CardView from 'react-native-cardview'
 
 import Background from "../components/Background";
 import Logo from "../components/Logo";
 import Header from "../components/Header";
-import Button from "../components/Button";
 import TextInput from "../components/TextInput";
-import BackButton from "../components/BackButton";
-import { theme } from "../core/theme";
+import { colors } from "../core/theme";
 import { emailValidator, passwordValidator } from "../core/utils";
 import { loginUser } from "../api/auth-api";
 import Toast from "../components/Toast";
 
-const screen = Dimensions.get('window');
-const mobileWidth = screen.width;
-const mobileHeight = screen.height;
+
 
 const LoginScreen = ({ navigation }) => {
     const [email, setEmail] = useState({ value: "", error: "" });
@@ -145,7 +140,7 @@ const styles = StyleSheet.create({
         justifyContent: 'space-around',
         paddingHorizontal: 15,
         paddingVertical: 15,
-        backgroundColor: theme.colors.bgTitle,
+        backgroundColor: colors.bgTitle,
         opacity: .9
     },
     bottomContainer: {
@@ -164,11 +159,11 @@ const styles = StyleSheet.create({
         alignContent: 'center',
     },
     label: {
-      color: theme.colors.secondary
+      color: colors.secondary
     },
     link: {
       fontWeight: "bold",
-      color: theme.colors.primary
+      color: colors.primary
     },
     button: {
         width: "100%",
@@ -176,7 +171,7 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
         height: 50,
-        backgroundColor: theme.colors.primary,
+        backgroundColor: colors.primary,
         borderRadius: 5,
     },
   });

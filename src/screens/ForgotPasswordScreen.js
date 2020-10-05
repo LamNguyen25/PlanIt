@@ -6,7 +6,7 @@ import BackButton from "../components/BackButton";
 import Logo from "../components/Logo";
 import Header from "../components/Header";
 import TextInput from "../components/TextInput";
-import { theme } from "../core/theme";
+import { colors } from "../core/theme";
 import Button from "../components/Button";
 import { sendEmailWithPassword } from "../api/auth-api";
 import Toast from "../components/Toast";
@@ -98,7 +98,7 @@ const styles = StyleSheet.create({
       marginTop: 12
     },
     label: {
-      color: theme.colors.secondary,
+      color: colors.secondary,
       width: "100%"
     }
 });

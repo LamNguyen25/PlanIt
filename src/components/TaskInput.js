@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { View, TextInput, Button, Modal, StyleSheet } from "react-native";
 //import { Button as PaperButton, TextInput } from "react-native-paper";
-import { theme } from "../core/theme";
+import { colors } from "../core/theme";
 
 const TaskInput = props => {
   const [enteredTask, setEnteredTask] = useState('');
@@ -17,7 +17,6 @@ const TaskInput = props => {
 
   const addTaskHandler = () => {
     props.onAddTask(enteredTask, enteredNote);
-    // props.onAddNote(enteredNote);
     setEnteredTask('');
     setEnteredNote('');
   };
@@ -40,7 +39,7 @@ const TaskInput = props => {
 
         <View style={styles.buttonContainer}>
           <View style={styles.button}> 
-            <Button title="CANCEL" color={theme.colors.bdMainRed} onPress={props.onCancel} />
+            <Button title="CANCEL" color={colors.bdMainRed} onPress={props.onCancel} />
           </View>
           <View style={styles.button}> 
             <Button title="ADD" onPress={addTaskHandler} /> 

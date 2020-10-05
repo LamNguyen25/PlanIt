@@ -1,12 +1,12 @@
 import React, { memo } from "react";
 import { StyleSheet, Text } from "react-native";
-import { theme } from "../core/theme";
+import { colors } from "../core/theme";
 
 const styles = StyleSheet.create({
     text: {
       fontSize: 16,
       lineHeight: 26,
-      color: theme.colors.secondary,
+      color: colors.secondary,
       textAlign: "center",
       marginBottom: 14
     }

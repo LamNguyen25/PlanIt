@@ -1,7 +1,7 @@
 import React, { memo } from "react";
 import { StyleSheet } from "react-native";
 import { Button as PaperButton } from "react-native-paper";
-import { theme } from "../core/theme";
+import { colors } from "../core/theme";
 
 const styles = StyleSheet.create({
     button: {
@@ -19,12 +19,12 @@ const Button = ({ mode, style, children, ...props }) => (
   <PaperButton
     style={[
       styles.button,
-      mode === "outlined" && { backgroundColor: theme.colors.surface},
+      mode === "outlined" && { backgroundColor: colors.surface},
       style
     ]}
     labelStyle={[
       styles.text,
-      mode === "contained" && { color: theme.colors.surface}
+      mode === "contained" && { color: colors.surface}
     ]}
     mode={mode}
     {...props}
