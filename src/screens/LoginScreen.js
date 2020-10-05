@@ -51,15 +51,11 @@ const LoginScreen = ({ navigation }) => {
     };
 
     return (
-        <Background>
+        <Background style={styles.container}>
             {/* <BackButton goBack={() => navigation.navigate("HomeScreen")} /> */}
-            <CardView
-                cardElevation={4}
-                maxCardElevation={4}
-                cornerRadius={10}
-                style={styles.cardViewStyle}
-            >
-                <View style={styles.cardElement}>
+            <View style={styles.topContainer}/>
+            <View style={styles.centerContainer}> 
+                <View style={styles.cardViewStyle}>
                     <Logo />
 
                     <Header>Welcome back.</Header>
@@ -95,10 +91,13 @@ const LoginScreen = ({ navigation }) => {
                             <Text style={styles.label}>Forgot your password?</Text>
                         </TouchableOpacity>
                     </View>
-
-                    <Button loading={loading} mode="contained" onPress={_onLoginPressed}>
-                        Login
-                    </Button>
+                    <TouchableOpacity
+                        style={styles.button}
+                        loading={loading} 
+                        onPress={_onLoginPressed}
+                    >
+                        <Text style={{color:'#ffffff', fontWeight: 'bold' }}> Login</Text>
+                    </TouchableOpacity>
 
                     <View style={styles.row}>
                         <Text styles={styles.label}>Don't have an account? </Text>
@@ -109,7 +108,9 @@ const LoginScreen = ({ navigation }) => {
 
                     <Toast message={error} onDismiss={() => setError("")} />
                 </View>
-            </CardView>
+   
+            </View>
+            <View style={styles.bottomContainer}/>
         </Background>
     );
 };
@@ -117,26 +118,50 @@ const LoginScreen = ({ navigation }) => {
 export default memo(LoginScreen);
 
 const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        width: Dimensions.get('window').width,
+        alignItems: 'center',
+        justifyContent: 'center',
+        opacity: 1
+    },
+    topContainer: {
+        flex: 1,
+        flexDirection: 'row',
+        width: '100%',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    centerContainer: {
+        flex: 12,
+        width: '100%',
+        alignItems: 'center',
+        paddingHorizontal: 15,
+    },
     cardViewStyle:{
-        width: mobileWidth - (mobileWidth/5), 
-        height: mobileHeight - (mobileHeight/5),
+        flex: 1,
+        width: '100%',
+        alignItems: 'center',
+        justifyContent: 'space-around',
+        paddingHorizontal: 15,
+        paddingVertical: 15,
         backgroundColor: theme.colors.bgTitle,
-        backgroundColor: theme.colors.bgTitle,
-        opacity: .8
+        opacity: .9
     },
-    cardElement: {
-        padding:10, 
-        opacity:1, 
-        justifyContent: 'center'
+    bottomContainer: {
+        flex: 1,
+        width: '100%',
     },
+    
     forgotPassword: {
       width: "100%",
       alignItems: "flex-end",
       marginBottom: 24,
     },
     row: {
-      flexDirection: "row",
-      marginTop: 4
+        flexDirection: "row", 
+        marginVertical: 20,
+        alignContent: 'center',
     },
     label: {
       color: theme.colors.secondary
@@ -144,5 +169,14 @@ const styles = StyleSheet.create({
     link: {
       fontWeight: "bold",
       color: theme.colors.primary
-    }
+    },
+    button: {
+        width: "100%",
+        marginVertical: 10,
+        justifyContent: "center",
+        alignItems: "center",
+        height: 50,
+        backgroundColor: theme.colors.primary,
+        borderRadius: 5,
+    },
   });

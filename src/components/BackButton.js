@@ -5,7 +5,7 @@ import { getStatusBarHeight } from "react-native-status-bar-height";
 const styles = StyleSheet.create({
     container: {
       position: "absolute",
-      top: 10 + getStatusBarHeight(),
+      // top: getStatusBarHeight(),
       left: 10
     },
     image: {

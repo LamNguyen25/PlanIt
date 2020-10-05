@@ -8,35 +8,68 @@ import {
   Dimensions, 
   FlatList } from 'react-native';
 
-import MenuDrawer from 'react-native-side-drawer'
 import {theme} from '../core/theme';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-
 import Menu from './Menu';
 import TaskItem from '../components/TaskItem';
 import TaskInput from '../components/TaskInput';
-
 const Screen = Dimensions.get('window')
 const center = Screen.width / 2 ;
-
+// import { addNewTask } from '../api/user-api';
 
 
 function Dashboard({ navigation }) {
-  const [tasks, setTasks] = useState([]);
+  const [taskList, setTaskList] = useState([]);
+  const [taskName, setTaskName] = useState("");
+  const [note, setNote] = useState("");
   const [isAddMode, setIsAddMode] = useState(false);
   const [isOpen, setMenuOpen] = useState(false);
+
+
+  // const addNewTask = async ({ taskName, note }) => {
+  //   var dateCreated = new Date();
+  //   var user = firebase.auth().currentUser;
+  //   firestore()
+  //   .collection('taskList')
+  //   .add({
+  //       taskName: taskName,
+  //       note: note,
+  //       // duaDate: dueDate,
+  //       dateAdded: dateCreated.toDateString,
+  //       // location: location,
+  //       userId: user.uid
+  //   })
+  //   .then(() => {
+  //       console.log('New Task added!');
+  //   });
+  // }
 
   const addTaskHandler = (taskTitle) => {
     if(taskTitle.length === 0) {
       return;
     }
 
-    setTasks(currentTasks => [
+    setTaskList(currentTasks => [
       ...currentTasks,
       { id: Math.random().toString(), value: taskTitle }
     ]);
+
+
     setIsAddMode(false);
   }
+
+  // const addNodeHandler = (noteContent) => {
+  //   if(noteContent.length === 0) {
+  //     return;
+  //   }
+
+  //   setNotes(currentNodes => [
+  //     ...currentNodes,
+  //     { id: Math.random().toString(), value: noteContent }
+  //   ]);
+  //   setIsAddMode(false);
+  // }
+
 
   const removeTaskHandler = taskId => {
     setTasks(currentTasks => {
@@ -47,43 +80,12 @@ function Dashboard({ navigation }) {
   const cancelTaskAdditionalHandler = () => {
     setIsAddMode(false);
   }
-  const toggleOpen = () => {
-    setMenuOpen(!isOpen);
-    setIsAddMode(false);
-  };
-
-  // const drawerContent = () => {
-  //   return (
-  //     <TouchableOpacity onPress={() => setMenuOpen(false)} style={styles.sideMenu}>
-  //       <Menu />
-  //     </TouchableOpacity>
-  //   );
-  // };
-
-
-//  render() {
+  
     return (
       <View style={styles.container}>
-        {/* <MenuDrawer
-          open={isOpen}
-          drawerContent={
-          <TouchableOpacity onPress={() => setMenuOpen(false)} style={styles.sideMenu}>
-            <Menu />
-          </TouchableOpacity>}
-            drawerPercentage={80}
-            animationTime={250}
-            overlay={true}
-            opacity={0.4}
-        > */}
+       
         <View style={styles.mainScreen}>
-          {/* <View style={ styles.navBar }>
-            <TouchableOpacity onPress={() => setMenuOpen(true)} style={styles.button}>
-              <Icon name='menu' size={30} style={{ color: '#2a9d8f' }} />
-            </TouchableOpacity>
-          </View> */}
-          
           <View>
-            {/* <Text style={ styles.headerHolder }>Welcome to TaskList</Text> */}
             
             <TouchableOpacity  style={ styles.headerHolder } onPress={() => setIsAddMode(true)} >
               <Icon style={ styles.addBtn } name='add-circle' size={24} />
@@ -94,13 +96,17 @@ function Dashboard({ navigation }) {
             <TaskInput
               visible={isAddMode}
               onAddTask={addTaskHandler}
+              // onAddNote={addNodeHandler}
               onCancel={cancelTaskAdditionalHandler}
             />
           </View>
           <View>
             <FlatList 
               keyExtractor={(item, index) => item.id}
-              data={tasks}
+              // data={tasks + notes}
+              data = {
+                taskList
+              }
               renderItem={itemData => (
                 <TaskItem 
                   id={itemData.item.id} 
@@ -117,7 +123,6 @@ function Dashboard({ navigation }) {
           </View>
           
         </View>
-        {/* </MenuDrawer> */}
       </View>
     )
   //}

@@ -5,24 +5,37 @@ import { theme } from "../core/theme";
 
 const TaskInput = props => {
   const [enteredTask, setEnteredTask] = useState('');
+  const [enteredNote, setEnteredNote] = useState('');
 
   const taskInputHandler = enteredText => {
     setEnteredTask(enteredText);
   };
 
+  const taskNoteHandler = enteredNoteDetails => {
+    setEnteredNote(enteredNoteDetails);
+  }
+
   const addTaskHandler = () => {
-    props.onAddTask(enteredTask);
+    props.onAddTask(enteredTask, enteredNote);
+    // props.onAddNote(enteredNote);
     setEnteredTask('');
+    setEnteredNote('');
   };
 
   return (
     <Modal visible={props.visible} animationType="slide">
       <View style={styles.inputContainer}>
         <TextInput
-          placeholder="New Task"
+          placeholder="Task Name"
           style={styles.input}
           onChangeText={taskInputHandler}
           value={enteredTask}
+        /> 
+        <TextInput
+          placeholder="Note"
+          style={styles.input}
+          onChangeText={taskNoteHandler}
+          value={enteredNote}
         /> 
 
         <View style={styles.buttonContainer}>
@@ -49,7 +62,9 @@ const styles = StyleSheet.create({
       width: '80%',
       borderColor: 'black',
       borderWidth: 1,
-      padding: 10
+      padding: 10,
+      marginVertical: 10,
+      borderRadius: 3
     },
     buttonContainer: {
       flexDirection: 'row',

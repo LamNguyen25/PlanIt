@@ -61,13 +61,7 @@ const RegisterScreen = ({ navigation }) => {
             {/* <BackButton goBack={() => navigation.navigate("HomeScreen")} /> */}
             <View style={styles.topContainer}/>
             <View style={styles.centerContainer}> 
-            <CardView
-                cardElevation={4}
-                maxCardElevation={4}
-                cornerRadius={10}
-                style={styles.cardViewStyle}
-            >
-                {/* <View> */}
+                <View style={styles.cardViewStyle}>
                     <Logo />
                     <Header>Create Account</Header>
 
@@ -107,14 +101,21 @@ const RegisterScreen = ({ navigation }) => {
                         autoCapitalize="none"
                     />
 
-                    <Button
+                    {/* <Button
                         loading={loading}
                         mode="contained"
                         onPress={_onSignUpPressed}
                         style={styles.button}
                     >
                         Sign Up
-                    </Button>
+                    </Button> */}
+                    <TouchableOpacity
+                        style={styles.button}
+                        loading={loading} 
+                        onPress={_onSignUpPressed}
+                    >
+                        <Text style={{color:'#ffffff', fontWeight: 'bold' }}> Sign Up</Text>
+                    </TouchableOpacity>
 
                     <View style={styles.row}>
                         <Text style={styles.label}>Already have an account? </Text>
@@ -124,12 +125,12 @@ const RegisterScreen = ({ navigation }) => {
                     </View>
 
                     <Toast message={error} onDismiss={() => setError("")} />
-                {/* </View> */}
-            </CardView>
+                </View>
+      
             </View>
             <View style={styles.bottomContainer}/>
         </Background>
-        // </View>
+        
         
     );
 };
@@ -160,29 +161,40 @@ const styles = StyleSheet.create({
         width: '100%',
         alignItems: 'center',
         justifyContent: 'space-around',
-        paddingHorizontal: 15,
-        paddingVertical: 15,
+        paddingHorizontal: 20,
+        paddingVertical: 10,
         backgroundColor: theme.colors.bgTitle,
-        opacity: .8
+        borderRadius: 5,
+        opacity: .9
       },
       bottomContainer: {
         flex: 1,
         width: '100%'
       },
     label: {
-        color: theme.colors.secondary
+        color: theme.colors.secondary,
     },
     button: {
-        marginTop: 24
+        marginVertical: 10, 
     },
     row: {
-        flexDirection: "row",
-        marginTop: 4
+        flexDirection: "row", 
+        marginVertical: 20,
+        alignContent: 'center',
     },
     link: {
         fontWeight: "bold",
         color: theme.colors.primary
-     }
+     },
+     button: {
+        width: "100%",
+        marginVertical: 10,
+        justifyContent: "center",
+        alignItems: "center",
+        height: 50,
+        backgroundColor: theme.colors.primary,
+        borderRadius: 5,
+    },
 });
 
 export default memo(RegisterScreen);

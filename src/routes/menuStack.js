@@ -5,8 +5,7 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 import { DrawerActions } from "@react-navigation/native";
 import MenuIcon from 'react-native-vector-icons/MaterialIcons';
  import Icon from 'react-native-vector-icons/FontAwesome';
-import LIcon from 'react-native-vector-icons/SimpleLineIcons';
-import UserIcon from 'react-native-vector-icons/EvilIcons';
+import {theme } from '../core/theme';
 import {
     LoginScreen,
     TaskDetails,

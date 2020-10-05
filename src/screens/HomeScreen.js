@@ -1,5 +1,5 @@
 import React, { memo } from "react";
-import { StyleSheet, Text, View, Dimensions } from "react-native";
+import { StyleSheet, Text, TouchableOpacity, View, Dimensions } from "react-native";
 import Background from "../components/Background";
 import Logo from "../components/Logo";
 import Button from "../components/Button";
@@ -15,27 +15,25 @@ const HomeScreen = ({ navigation }) => (
   <Background style={styles.container}>       
    <View style={styles.topContainer}/>
     <View style={styles.centerContainer}> 
-      <CardView
-        cardElevation={4}
-        maxCardElevation={4}
-        cornerRadius={10}
-        style={styles.cardViewStyle}
-      >
+        <View style={styles.cardViewStyle}>
           <Logo/>
           <Paragraph style={styles.pText}>
             Task management app
           </Paragraph>
-          <Button mode="contained" onPress={() => navigation.navigate("LoginScreen")}>
-            Login
-          </Button>
-          <Button
-            mode="outlined"
+          <TouchableOpacity
+            style={styles.buttonLogin}
+            onPress={() => navigation.navigate("LoginScreen")}
+          >
+            <Text style={{color:'#ffffff', fontWeight: 'bold' }}> Sign In</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.buttonSignUp}
             onPress={() => navigation.navigate("RegisterScreen")}
           >
-            Sign Up
-          </Button>
+            <Text style={{color:theme.colors.primary, fontWeight: 'bold' }}> Sign Up</Text>
+          </TouchableOpacity>
         
-      </CardView>
+        </View>
       </View>
       <View style={styles.bottomContainer}/>
   </Background>
@@ -68,9 +66,11 @@ const styles = StyleSheet.create({
     flex: 1,
     width: '100%',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'space-around',
     paddingHorizontal: 20,
+    paddingVertical: 10,
     backgroundColor: theme.colors.bgTitle,
+    borderRadius: 5,
     opacity: .8
   },
   bottomContainer: {
@@ -79,5 +79,23 @@ const styles = StyleSheet.create({
   },
   pText:{
     color: theme.colors.txtBlack
-  }
+  },
+  buttonLogin: {
+    width: "100%",
+    marginVertical: 10,
+    justifyContent: "center",
+    alignItems: "center",
+    height: 50,
+    backgroundColor: theme.colors.primary,
+    borderRadius: 5,
+},
+buttonSignUp: {
+  width: "100%",
+  marginVertical: 10,
+  justifyContent: "center",
+  alignItems: "center",
+  height: 50,
+  backgroundColor: theme.colors.bdWhite,
+  borderRadius: 5
+},
 });
